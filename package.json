@@ -30,6 +30,7 @@
 		"@animotion/motion": "*",
 		"@fontsource/atkinson-hyperlegible": "^5.2.6",
 		"@fontsource/monaspace-neon": "^5.2.5",
+		"@iconify/svelte": "^5.0.1",
 		"@tailwindcss/vite": "^4.1.10",
 		"reveal.js": "^5.2.1",
 		"tailwindcss": "^4.1.10"
