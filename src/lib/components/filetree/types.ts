@@ -1,7 +1,6 @@
 export interface FileNode {
   type: 'file'
   name: string
-  extension?: string
   size?: number
 }
 

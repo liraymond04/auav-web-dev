@@ -11,16 +11,16 @@ export const sampleFileTree: FileTreeNode[] = [
         name: 'components',
         isExpanded: false,
         children: [
-          { type: 'file', name: 'FileTree.svelte', extension: 'svelte' },
-          { type: 'file', name: 'FileNode.svelte', extension: 'svelte' },
-          { type: 'file', name: 'DirectoryNode.svelte', extension: 'svelte' }
+          { type: 'file', name: 'FileTree.svelte' },
+          { type: 'file', name: 'FileNode.svelte' },
+          { type: 'file', name: 'DirectoryNode.svelte' }
         ]
       },
       {
         type: 'directory',
         name: 'types',
         isExpanded: false,
-        children: [{ type: 'file', name: 'index.ts', extension: 'ts' }]
+        children: [{ type: 'file', name: 'index.ts' }]
       },
       {
         type: 'directory',
@@ -32,12 +32,12 @@ export const sampleFileTree: FileTreeNode[] = [
             name: 'filetree',
             isExpanded: false,
             children: [
-              { type: 'file', name: '+page.svelte', extension: 'svelte' }
+              { type: 'file', name: '+page.svelte' }
             ]
           },
         ]
       },
-      { type: 'file', name: 'app.html', extension: 'html' }
+      { type: 'file', name: 'app.html' }
     ]
   },
   {
@@ -45,11 +45,11 @@ export const sampleFileTree: FileTreeNode[] = [
     name: 'public',
     isExpanded: false,
     children: [
-      { type: 'file', name: 'index.html', extension: 'html' },
-      { type: 'file', name: 'favicon.ico', extension: 'ico' }
+      { type: 'file', name: 'index.html' },
+      { type: 'file', name: 'favicon.ico' }
     ]
   },
-  { type: 'file', name: 'package.json', extension: 'json' },
-  { type: 'file', name: 'tsconfig.json', extension: 'json' },
-  { type: 'file', name: 'README.md', extension: 'md' }
+  { type: 'file', name: 'package.json' },
+  { type: 'file', name: 'tsconfig.json' },
+  { type: 'file', name: 'README.md' }
 ]

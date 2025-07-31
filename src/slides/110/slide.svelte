@@ -1,17 +1,21 @@
 <script lang="ts">
 	import DirectoryNodeComponent from '$lib/components/filetree/DirectoryNode.svelte'
 	import FileNodeComponent from '$lib/components/filetree/FileNode.svelte'
-	import { def_dir_code, def_file_code, usage_dir_code, usage_file_code } from '$lib/components/filetree/shared'
+	import {
+		def_dir_code,
+		def_file_code,
+		usage_dir_code,
+		usage_file_code
+	} from '$lib/components/filetree/shared'
 	import type { DirectoryNode, FileNode, FileTreeNode } from '$lib/components/filetree/types'
 	import { Action, Code, Transition } from '@animotion/core'
 
 	let text: HTMLParagraphElement
 
-	let file_node: FileNode = {
+	let file_node: FileNode = $state({
 		type: 'file',
-		name: '+page.svelte',
-		extension: 'svelte'
-	}
+		name: '+page.svelte'
+	})
 
 	let nodes: FileTreeNode[] = $state([
 		{
@@ -27,6 +31,10 @@
 	let dir_code: ReturnType<typeof Code>
 
 	let showPrev = $state(true)
+
+	function click(path: string) {
+		console.log(path)
+	}
 </script>
 
 <div class="relative flex min-h-screen flex-col">
@@ -42,7 +50,12 @@
 			{/if}
 			<Transition do={() => (showPrev = false)} undo={() => (showPrev = true)}>
 				<div class="pt-2 pb-2">
-					<FileNodeComponent node={file_node} depth={0} path={'routes/+page.svelte'} />
+					<FileNodeComponent
+						node={file_node}
+						depth={0}
+						path={'routes/+page.svelte'}
+						{click}
+					/>
 				</div>
 				<div>
 					<Code
@@ -67,7 +80,13 @@
 			</Transition>
 			<Transition>
 				<div class="pt-2 pb-2">
-					<DirectoryNodeComponent bind:nodes node={dir_node} depth={0} path={'routes'} />
+					<DirectoryNodeComponent
+						bind:nodes
+						node={dir_node}
+						depth={0}
+						path={'routes'}
+						{click}
+					/>
 				</div>
 				<div>
 					<Code
@@ -102,7 +121,7 @@
 							file_code.selectLines`5-7,11`
 							dir_code.selectLines``
 						},
-						() => dir_code.selectLines`5-9, 12`
+						() => dir_code.selectLines`5-9,12`
 					]}
 				/>
 			</Transition>

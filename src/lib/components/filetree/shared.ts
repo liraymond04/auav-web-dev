@@ -1,21 +1,17 @@
-export const usage_file_code = `
-  <script lang="ts">
-    let file_node: FileNode = {
+export const usage_file_code = `<script lang="ts">
+    let file_node: FileNode = $state({
       type: 'file',
       name: '+page.svelte',
-      extension: 'svelte'
-    }
+    })
   <\/script>
 
   <FileNodeComponent
     node={file_node}
     depth={0}
     path={'routes/+page.svelte'}
-  />
-`
+  />`
 
-export const def_file_code = `
-  <!-- FileNode.svelte -->
+export const def_file_code = `<!-- FileNode.svelte -->
   <script lang="ts">
     const { node, depth, path } = $props()
 
@@ -27,13 +23,11 @@ export const def_file_code = `
   <div
     onclick={handleClick}
   >
-    <FileIcon extension={node.extension} />
+    <FileIcon extension={getFileExtension(node.name)} />
     <span>{node.name}</span>
-  </div>
-`
+  </div>`
 
-export const usage_dir_code = `
-  <script lang="ts">
+export const usage_dir_code = `<script lang="ts">
     let nodes: FileTreeNode[] = $state([
       {
         type: 'directory',
@@ -51,11 +45,9 @@ export const usage_dir_code = `
     node={dir_node}
     depth={0}
     path={'routes'}
-  />
-`
+  />`
 
-export const def_dir_code = `
-  <!-- DirectoryNode.svelte -->
+export const def_dir_code = `<!-- DirectoryNode.svelte -->
   <script lang="ts">
     const { nodes = $bindable, node, depth, path } = $props()
 
@@ -81,5 +73,4 @@ export const def_dir_code = `
 
     <span>{node.name}</span>
     <span>{node.children.length} items</span>
-  </div>
-`
+  </div>`

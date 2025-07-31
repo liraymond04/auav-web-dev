@@ -1,13 +1,19 @@
 <script lang="ts">
 	import type { FileNode } from './types'
 	import FileIcon from './FileIcon.svelte'
+	import { getFileExtension } from './utils'
 
-	const { node, depth, path }: { node: FileNode; depth: number, path: string } = $props()
+	const {
+		node,
+		depth,
+		path,
+		click,
+	}: { node: FileNode; depth: number; path: string; click?: (path: string) => void } = $props()
 
 	const paddingLeft = $derived(`${depth * 20 + 8}px`)
 
 	function handleClick() {
-		console.log(path)
+		click?.(path)
 	}
 </script>
 
@@ -18,7 +24,7 @@
 	style="padding-left: {paddingLeft}"
 	onclick={handleClick}
 >
-	<FileIcon extension={node.extension} />
+	<FileIcon extension={getFileExtension(node.name)} />
 	<span class="ml-2 text-sm">{node.name}</span>
 	{#if node.size}
 		<span class="ml-auto text-xs text-gray-500">

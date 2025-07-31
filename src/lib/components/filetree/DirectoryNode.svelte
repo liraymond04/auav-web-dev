@@ -7,12 +7,14 @@
 		nodes = $bindable(),
 		node,
 		depth,
-		path
+		path,
+		click
 	}: {
 		nodes: FileTreeNode[]
 		node: DirectoryNode
 		depth: number
 		path: string
+		click?: (path: string) => void
 	} = $props()
 
 	const paddingLeft = $derived(`${depth * 20 + 8}px`)
@@ -81,6 +83,7 @@
 					node={child}
 					depth={depth + 1}
 					path="{path}/{child.name}"
+					{click}
 				/>
 			{/each}
 		</div>
