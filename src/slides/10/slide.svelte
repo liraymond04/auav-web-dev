@@ -7,8 +7,6 @@
 		<p class="text-5xl font-bold">Software Design</p>
 	</Transition>
 	<Transition>
-		<div class="mt-6 space-y-2 text-left text-2xl">
-      Full-stack web development w/ Sveltekit
-		</div>
+		<div class="mt-6 space-y-2 text-left text-2xl">Full-stack web development w/ Sveltekit</div>
 	</Transition>
 </div>
