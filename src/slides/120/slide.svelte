@@ -101,8 +101,8 @@
 						/>
 					</div>
 				</div>
-			</div></Transition
-		>
+			</div>
+		</Transition>
 
 		<Transition hidden>
 			<Action

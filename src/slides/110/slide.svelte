@@ -1,3 +1,11 @@
+<!-- TODO -->
+<!---->
+<!-- Right before this, explain very basically how a Svelte component works -->
+<!---->
+<!-- It's like an HTML template, can add script and style tags and elements -->
+<!---->
+<!-- One file per component, passing in props, and including and using components -->
+<!---->
 <script lang="ts">
 	import DirectoryNodeComponent from '$lib/components/filetree/DirectoryNode.svelte'
 	import FileNodeComponent from '$lib/components/filetree/FileNode.svelte'

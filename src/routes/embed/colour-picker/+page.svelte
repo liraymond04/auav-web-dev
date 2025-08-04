@@ -1,9 +1,48 @@
 <script lang="ts">
+	import { parseRGBString } from '$lib/components/colour-picker/utils'
+	import { tween } from '@animotion/motion'
+	import { onMount } from 'svelte'
+	import { Tween } from 'svelte/motion'
+
 	let r = $state(128)
 	let g = $state(128)
 	let b = $state(128)
 
-	const rgbColor = $derived(`rgb(${r}, ${g}, ${b})`)
+	let rgbColor = $derived(`rgb(${r}, ${g}, ${b})`)
+
+	let target = $state<{ r: number, g: number, b: number }>();
+	let new_col = tween({ r: r, g: g, b: b })
+	let changing_col = $state(false)
+
+	$effect(() => {
+		if (changing_col && target) {
+			r = new_col.r.toFixed(0)
+			g = new_col.g.toFixed(0)
+			b = new_col.b.toFixed(0)
+			if (r === target.r && g === target.g && b === target.b) {
+				target = undefined;
+				changing_col = false;
+			}
+		}
+	})
+
+	onMount(() => {
+		window.addEventListener('message', (event) => {
+			if (event.origin !== window.origin) return
+
+			const { type, payload } = event.data
+
+			if (type === 'updateColour') {
+				console.log('Colour received from parent:', payload.colour)
+				const parsed_rgb = parseRGBString(payload.colour)
+				if (parsed_rgb) {
+ new_col.to(parsed_rgb)
+ target = parsed_rgb
+				}
+				changing_col = true
+			}
+		})
+	})
 </script>
 
 <div class="mx-auto max-w-md p-6 font-sans">
