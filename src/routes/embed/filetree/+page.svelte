@@ -6,4 +6,6 @@
 	let nodes: FileTreeNode[] = $state(structuredClone(sampleFileTree))
 </script>
 
-<FileTree bind:nodes />
+<div class="font-sans">
+	<FileTree bind:nodes />
+</div>
