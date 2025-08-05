@@ -48,6 +48,7 @@
 			</div>
 			<Action
 				undo={() => {
+					code.selectLines`*`
 					code.update`${component_code}`
 					updateIframeColour('rgb(128, 128, 128)')
 				}}
@@ -68,7 +69,9 @@
 						)
 						code.update`${new_component_code}`
 						updateIframeColour(`rgb(${new_r}, ${new_g}, ${new_b})`)
-					}
+					},
+					() => code.selectLines`2, 13-18`,
+					() => code.selectLines`6, 35-41`
 				]}
 			></Action>
 		</Transition>
