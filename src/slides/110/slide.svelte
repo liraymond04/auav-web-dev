@@ -18,8 +18,6 @@
 	import type { DirectoryNode, FileNode, FileTreeNode } from '$lib/components/filetree/types'
 	import { Action, Code, Transition } from '@animotion/core'
 
-	let text: HTMLParagraphElement
-
 	let file_node: FileNode = $state({
 		type: 'file',
 		name: '+page.svelte'
@@ -48,7 +46,7 @@
 <div class="relative flex min-h-screen flex-col">
 	<div class="flex flex-grow flex-col items-center justify-center">
 		<Transition visible>
-			<p bind:this={text} class="p-8 text-center text-5xl font-bold">Separation of Concerns</p>
+			<p class="p-8 text-center text-5xl font-bold">Separation of Concerns</p>
 		</Transition>
 		<div class="flex gap-x-8">
 			{#if showPrev}

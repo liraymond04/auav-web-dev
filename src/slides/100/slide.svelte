@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { Transition } from '@animotion/core'
 </script>
 
