@@ -1,4 +1,5 @@
-export const page_code = `<script lang="ts">
+export const page_code = `<!-- Page -->
+<script lang="ts">
 	const products: Product[] = [
 		{ id: 1, name: 'Apple', price: 1 },
 		{ id: 2, name: 'Banana', price: 2 }
@@ -26,7 +27,8 @@ export const page_code = `<script lang="ts">
 <ProductList {products} add={(e) => addToCart(e)} />
 <Cart {products} bind:cart remove={(e) => removeFromCart(e)} />`
 
-export const cart_code = `<script lang="ts">
+export const cart_code = `<!-- Cart -->
+<script lang="ts">
 	let { products, cart = $bindable(), remove } = $props()
 </script>
 
@@ -52,7 +54,8 @@ export const cart_code = `<script lang="ts">
 	</p>
 {/if}`
 
-export const item_code = `<script lang="ts">
+export const item_code = `<!-- ProductItem -->
+<script lang="ts">
 	let { product, add } = $props()
 
 	function handleAdd() {
@@ -65,7 +68,8 @@ export const item_code = `<script lang="ts">
 	<button onclick={handleAdd}>Add to Cart</button>
 </div>`
 
-export const list_code = `<script lang="ts">
+export const list_code = `<!-- ProductList -->
+<script lang="ts">
 	let { products, add } = $props()
 </script>
 
