@@ -1,3 +1,4 @@
+
 <script lang="ts">
 	import { cart_code, item_code, list_code, page_code } from '$lib/components/shopping/shared'
 	import { Code, Transition } from '@animotion/core'
@@ -8,8 +9,23 @@
 	let list: ReturnType<typeof Code>
 </script>
 
+<!-- Page -->
 <div class="relative flex min-h-screen">
-	<div class="flex flex-grow flex-col items-center justify-center">
-		<iframe title="slide_content" class="min-h-100 min-w-120" src="/embed/shopping"></iframe>
-	</div>
+<div>
+
+</div>
+	<Code
+		bind:this={page}
+		lang="svelte"
+		theme="poimandres"
+		class="w-[480px]"
+		code={page_code}
+		options={{
+			duration: 800,
+			stagger: 0.3,
+			lineNumbers: true,
+			containerStyle: false,
+			enhanceMatching: true
+		}}
+	/>
 </div>

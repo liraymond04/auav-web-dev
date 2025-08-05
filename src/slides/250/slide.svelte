@@ -15,10 +15,6 @@
 			window.origin
 		)
 	}
-
-	const new_r = 234
-	const new_g = 29
-	const new_b = 93
 </script>
 
 <div class="relative flex min-h-screen flex-col">
@@ -57,18 +53,18 @@
 						let new_component_code = component_code
 						new_component_code = new_component_code.replace(
 							'let r = $state(128)',
-							`let r = $state(${new_r})`
+							`let r = $state(234)`
 						)
 						new_component_code = new_component_code.replace(
 							'let g = $state(128)',
-							`let g = $state(${new_g})`
+							`let g = $state(29)`
 						)
 						new_component_code = new_component_code.replace(
 							'let b = $state(128)',
-							`let b = $state(${new_b})`
+							`let b = $state(93)`
 						)
 						code.update`${new_component_code}`
-						updateIframeColour(`rgb(${new_r}, ${new_g}, ${new_b})`)
+						updateIframeColour(`rgb(234, 29, 93)`)
 					},
 					() => code.selectLines`2, 13-18`,
 					() => code.selectLines`6, 35-41`
