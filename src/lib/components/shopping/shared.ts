@@ -45,8 +45,7 @@ export const cart_code = `<script lang="ts">
 	</ul>
 
 	<p>
-		Total: $
-		{cart.reduce(
+		Total: \${cart.reduce(
 			(total, item) => total + getProduct(products, item.id).price * item.quantity,
 			0
 		)}

@@ -16,16 +16,17 @@
 {:else}
 	<ul>
 		{#each cart as item}
-			<li class="flex justify-between">
-				<span>{getProduct(products, item.id)?.name} x {item.quantity}</span>
-				<button onclick={() => remove(item)}>Remove</button>
+			<li class="card card-border mb-1 p-2">
+				<div class="flex items-center justify-between">
+					<span>{getProduct(products, item.id)?.name} x {item.quantity}</span>
+					<button class="btn btn-soft btn-error" onclick={() => remove(item)}>Remove</button>
+				</div>
 			</li>
 		{/each}
 	</ul>
 
 	<p class="mt-4 font-bold">
-		Total: $
-		{cart.reduce(
+		Total: ${cart.reduce(
 			(total, item) => total + (getProduct(products, item.id)?.price ?? 0) * item.quantity,
 			0
 		)}
