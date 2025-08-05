@@ -14,7 +14,9 @@
 	}
 </script>
 
-<div class="flex items-center justify-between">
-	<span>{product.name} - ${product.price}</span>
-	<button onclick={handleAdd}>Add to Cart</button>
+<div class="card card-border shadow mb-1">
+	<div class="flex items-center justify-between p-2">
+		<span>{product.name} - ${product.price}</span>
+		<button class="btn btn-soft btn-primary" onclick={handleAdd}>Add to Cart</button>
+	</div>
 </div>

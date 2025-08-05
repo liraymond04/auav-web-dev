@@ -27,7 +27,7 @@
 	}
 </script>
 
-<div class="font-sans">
+<div class="p-4 font-sans max-w-2xl">
 	<ProductList {products} add={(e) => addToCart(e)} />
 	<Cart {products} bind:cart remove={(e) => removeFromCart(e)} />
 </div>
