@@ -2,6 +2,7 @@
 	import ProductList from '$lib/components/shopping/ProductList.svelte'
 	import Cart from '$lib/components/shopping/Cart.svelte'
 	import type { CartItem, Product } from '$lib/components/shopping/types'
+	import { getProduct } from '$lib/components/shopping/utils'
 
 	const products: Product[] = [
 		{ id: 1, name: 'Apple', price: 1 },
@@ -27,7 +28,14 @@
 	}
 </script>
 
-<div class="p-4 font-sans max-w-2xl">
+<div class="max-w-2xl p-4 font-sans">
 	<ProductList {products} add={(e) => addToCart(e)} />
 	<Cart {products} bind:cart remove={(e) => removeFromCart(e)} />
+
+	<p class="mt-4 font-bold">
+		Total: ${cart.reduce(
+			(total, item) => total + (getProduct(products, item.id)?.price ?? 0) * item.quantity,
+			0
+		)}
+	</p>
 </div>

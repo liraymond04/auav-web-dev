@@ -24,11 +24,4 @@
 			</li>
 		{/each}
 	</ul>
-
-	<p class="mt-4 font-bold">
-		Total: ${cart.reduce(
-			(total, item) => total + (getProduct(products, item.id)?.price ?? 0) * item.quantity,
-			0
-		)}
-	</p>
 {/if}

@@ -25,7 +25,14 @@ export const page_code = `<!-- Page -->
 </script>
 
 <ProductList {products} add={(e) => addToCart(e)} />
-<Cart {products} bind:cart remove={(e) => removeFromCart(e)} />`
+<Cart {products} bind:cart remove={(e) => removeFromCart(e)} />
+
+<p>
+	Total: \${cart.reduce(
+		(total, item) => total + getProduct(products, item.id).price * item.quantity,
+		0
+	)}
+</p>`
 
 export const cart_code = `<!-- Cart -->
 <script lang="ts">
@@ -45,13 +52,6 @@ export const cart_code = `<!-- Cart -->
 			</li>
 		{/each}
 	</ul>
-
-	<p>
-		Total: \${cart.reduce(
-			(total, item) => total + getProduct(products, item.id).price * item.quantity,
-			0
-		)}
-	</p>
 {/if}`
 
 export const item_code = `<!-- ProductItem -->
