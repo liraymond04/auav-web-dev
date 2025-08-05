@@ -16,9 +16,9 @@
 
 	$effect(() => {
 		if (changing_col && target) {
-			r = new_col.r.toFixed(0)
-			g = new_col.g.toFixed(0)
-			b = new_col.b.toFixed(0)
+			r = Number(new_col.r.toFixed(0))
+			g = Number(new_col.g.toFixed(0))
+			b = Number(new_col.b.toFixed(0))
 			if (r === target.r && g === target.g && b === target.b) {
 				target = undefined;
 				changing_col = false;
